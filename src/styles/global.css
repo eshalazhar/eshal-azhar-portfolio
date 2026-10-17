@@ -1,0 +1,66 @@
+:root {
+  --ink: #26262b;
+  --ink-soft: #55555d;
+  --paper: #f2eee4;
+  --paper-2: #e9e4d6;
+  --sage: #a9bfa3;
+  --sage-deep: #4f6b4c;
+  --lav: #c9bfe6;
+  --lav-deep: #5a4a96;
+  --pop: #5b3df5;
+  --display: 'Bricolage Grotesque', 'Helvetica Neue', Arial, sans-serif;
+  --body: 'Figtree', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --pad: clamp(1.25rem, 4vw, 3rem);
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 4.5rem; }
+body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--body); font-size: 1.0625rem; line-height: 1.6; overflow-x: hidden; }
+h1, h2, h3, p, ul, ol { margin: 0; }
+ul, ol { padding: 0; list-style: none; }
+a { color: inherit; }
+button { font: inherit; color: inherit; cursor: pointer; }
+:focus-visible { outline: 3px solid var(--pop); outline-offset: 3px; border-radius: 2px; }
+.dark :focus-visible, .projects :focus-visible { outline-color: var(--lav); }
+
+.wrap { max-width: 1280px; margin-inline: auto; padding-inline: var(--pad); }
+.section { padding-block: clamp(4rem, 9vw, 8rem); scroll-margin-top: 3.5rem; }
+.section-title { font-family: var(--display); font-weight: 800; font-size: clamp(2.25rem, 6vw, 4.5rem); line-height: 1; letter-spacing: -0.03em; max-width: 14ch; }
+.section-head { display: grid; grid-template-columns: repeat(12, 1fr); gap: 1.5rem var(--pad); align-items: end; margin-bottom: 3rem; }
+.section-head .section-title { grid-column: 1 / span 7; }
+.section-head .section-lede { grid-column: 9 / span 4; color: var(--ink-soft); }
+.small-title { font-family: var(--display); font-weight: 700; font-size: 1.05rem; margin-bottom: 0.75rem; }
+
+.skip { position: absolute; left: -999px; top: 0.5rem; background: var(--ink); color: var(--paper); padding: 0.5rem 1rem; z-index: 100; }
+.skip:focus { left: 0.5rem; }
+
+.btn { display: inline-block; padding: 0.8rem 1.4rem; border: 1.5px solid var(--ink); text-decoration: none; font-weight: 600; border-radius: 999px; transition: background 0.2s, color 0.2s, transform 0.2s; }
+.btn:hover { background: var(--ink); color: var(--paper); transform: translateY(-2px); }
+.btn.primary { background: var(--pop); border-color: var(--pop); color: #fff; }
+.btn.primary:hover { background: var(--ink); border-color: var(--ink); }
+
+/* Navigation */
+.nav { position: sticky; top: 0; z-index: 50; background: rgba(242, 238, 228, 0.92); backdrop-filter: blur(8px); border-bottom: 1px solid rgba(38, 38, 43, 0.15); }
+.nav-row { display: flex; align-items: center; justify-content: space-between; height: 3.25rem; }
+.wordmark { font-family: var(--display); font-weight: 800; font-size: 1.15rem; text-decoration: none; letter-spacing: -0.02em; }
+.wordmark span { color: var(--pop); }
+.nav nav { display: flex; gap: 1.5rem; align-items: center; }
+.nav nav a { text-decoration: none; font-size: 0.95rem; font-weight: 500; padding-block: 0.25rem; background: linear-gradient(var(--pop), var(--pop)) left bottom / 0 2px no-repeat; transition: background-size 0.25s; }
+.nav nav a:hover, .nav nav a.active { background-size: 100% 2px; }
+.nav nav a.nav-cv { border: 1.5px solid var(--ink); border-radius: 999px; padding: 0.2rem 0.9rem; background: none; }
+.nav-toggle { display: none; background: none; border: 1.5px solid var(--ink); border-radius: 999px; padding: 0.25rem 0.9rem; }
+
+@media (max-width: 820px) {
+  .nav-toggle { display: block; }
+  .nav nav { display: none; position: absolute; top: 3.25rem; left: 0; right: 0; flex-direction: column; align-items: flex-start; gap: 0; background: var(--paper); border-bottom: 1px solid var(--ink); padding: 0.5rem var(--pad) 1rem; }
+  .nav nav.open { display: flex; }
+  .nav nav a { padding-block: 0.7rem; font-size: 1.15rem; }
+}
+
+/* Reveal: only when JS is running, never when reduced motion is requested */
+.js .reveal { opacity: 0; transform: translateY(14px); transition: opacity 0.6s ease, transform 0.6s ease; }
+.js .reveal.in { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  .js .reveal { opacity: 1; transform: none; }
+}
