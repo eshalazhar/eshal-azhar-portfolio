@@ -52,4 +52,3 @@ npm run dev
 ## 📬 Connect With Me
 
 - **GitHub:** [@eshalazhar](https://github.com/eshalazhar)
-- **Portfolio:** Coming
