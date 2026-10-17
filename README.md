@@ -1,24 +1,55 @@
-# Eshal Azhar: portfolio website
+# Eshal Azhar | AI Student & Aspiring Entrepreneur
 
-React + Vite site. All content lives in `src/data/content.js`.
+Welcome to my personal portfolio repository! 👋
 
-## Run locally
-1. Install Node.js 18+ from nodejs.org.
-2. In this folder: `npm install`, then `npm run dev` and open the address it prints.
-3. Production check: `npm run build` then `npm run preview`.
+I'm **Eshal Azhar**, an Artificial Intelligence undergraduate at the **National University of Technology (NUTECH), Islamabad, Pakistan**. I'm passionate about building AI-powered solutions, exploring emerging technologies, and combining technical creativity with meaningful real-world impact.
 
-## Add real links and your CV
-- Open `src/data/content.js`. GitHub, Softbloom and Pinterest links are already set under `profile`. Set each project's `repo` / `demo`. Empty values hide the button.
-- CV: put a PDF in `public/` and set `profile.cvFile` to its file name. Export a version without your phone number and home address first, because text hidden under a redacted PDF can still be copied.
-- Samples of writing or music: add entries to `creative.samples`.
+## 🌐 About This Portfolio
 
-## Deploy to GitHub Pages
-1. Create a new empty repository on github.com (any name).
-2. In this folder: `git init`, `git add .`, `git commit -m "Portfolio"`, `git branch -M main`, `git remote add origin <your repo URL>`, `git push -u origin main`.
-3. On GitHub: Settings > Pages > Source: **GitHub Actions**.
-4. The workflow in `.github/workflows/deploy.yml` builds and publishes on each push. Your site appears at `https://<username>.github.io/<repo>/`.
+This portfolio showcases my journey in Artificial Intelligence, software development, leadership, and creative work.
 
-The Vite `base` is `./` (relative paths), so no repository-name setting is needed.
+### ✨ Features
+- Interactive and responsive design
+- Animated hero section
+- About me and technical skills
+- Academic and personal projects
+- Leadership and extracurricular experience
+- Certifications and continuous learning
+- Creative interests and contact information
 
-## Security check
-Run `npm audit` after `npm install` and `npm audit fix` if it reports anything. The site has no backend, no forms, no secrets and no tracking; only React and the Vite build tool are dependencies.
+## 🛠️ Tech Stack
+
+- **Frontend:** React, Vite, JavaScript
+- **Styling:** CSS
+- **Development Tools:** Git, GitHub, VS Code
+
+## 🚀 Run Locally
+
+To run this project on your computer:
+
+```bash
+# Clone the repository
+git clone https://github.com/eshalazhar/eshal-azhar-portfolio.git
+
+# Navigate to the project folder
+cd eshal-azhar-portfolio
+
+# Install dependencies
+npm install
+
+# Start the development server
+npm run dev
+```
+
+## 🎯 Interests
+
+- Artificial Intelligence and Machine Learning
+- AI-powered products and entrepreneurship
+- Human-centered technology
+- Leadership and community engagement
+- Writing, singing, and creative design
+
+## 📬 Connect With Me
+
+- **GitHub:** [@eshalazhar](https://github.com/eshalazhar)
+- **Portfolio:** Coming
