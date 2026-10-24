@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { profile, sections } from '../data/content.js'
 import { useActiveSection } from '../hooks/useReveal.js'
+import dp from '../assets/eshal-dp.jpg'
 
 const ids = sections.map((s) => s.id)
 
@@ -18,7 +19,8 @@ export default function Navbar() {
     <header className="nav">
       <div className="wrap nav-row">
         <a className="wordmark" href="#top" onClick={() => setOpen(false)}>
-          eshal<span>.</span>azhar
+          <img src={dp} alt="Eshal Azhar" width="36" height="36" />
+          <span>eshal<b>.</b>azhar</span>
         </a>
         <button className="nav-toggle" aria-expanded={open} aria-controls="nav-links" onClick={() => setOpen(!open)}>
           {open ? 'Close' : 'Menu'}

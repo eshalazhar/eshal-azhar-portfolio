@@ -1,13 +1,13 @@
 :root {
-  --ink: #26262b;
-  --ink-soft: #55555d;
-  --paper: #f2eee4;
-  --paper-2: #e9e4d6;
-  --sage: #a9bfa3;
-  --sage-deep: #4f6b4c;
-  --lav: #c9bfe6;
-  --lav-deep: #5a4a96;
-  --pop: #5b3df5;
+  --ink: #1f1612;
+  --ink-soft: #5a4a40;
+  --paper: #f3eadc;
+  --paper-2: #e8d9c3;
+  --sage: #d9a96a;
+  --sage-deep: #7d5026;
+  --lav: #e8cdb9;
+  --lav-deep: #6b3a26;
+  --pop: #b3261e;
   --display: 'Bricolage Grotesque', 'Helvetica Neue', Arial, sans-serif;
   --body: 'Figtree', system-ui, -apple-system, 'Segoe UI', sans-serif;
   --pad: clamp(1.25rem, 4vw, 3rem);
@@ -39,10 +39,11 @@ button { font: inherit; color: inherit; cursor: pointer; }
 .btn.primary:hover { background: var(--ink); border-color: var(--ink); }
 
 /* Navigation */
-.nav { position: sticky; top: 0; z-index: 50; background: rgba(242, 238, 228, 0.92); backdrop-filter: blur(8px); border-bottom: 1px solid rgba(38, 38, 43, 0.15); }
+.nav { position: sticky; top: 0; z-index: 50; background: rgba(243, 234, 220, 0.92); backdrop-filter: blur(8px); border-bottom: 1px solid rgba(31, 22, 18, 0.15); }
 .nav-row { display: flex; align-items: center; justify-content: space-between; height: 3.25rem; }
-.wordmark { font-family: var(--display); font-weight: 800; font-size: 1.15rem; text-decoration: none; letter-spacing: -0.02em; }
-.wordmark span { color: var(--pop); }
+.wordmark { display: inline-flex; align-items: center; gap: 0.6rem; font-family: var(--display); font-weight: 800; font-size: 1.15rem; text-decoration: none; letter-spacing: -0.02em; }
+.wordmark img { width: 2.25rem; height: 2.25rem; border-radius: 50%; object-fit: cover; border: 2px solid var(--sage); }
+.wordmark b { color: var(--pop); }
 .nav nav { display: flex; gap: 1.5rem; align-items: center; }
 .nav nav a { text-decoration: none; font-size: 0.95rem; font-weight: 500; padding-block: 0.25rem; background: linear-gradient(var(--pop), var(--pop)) left bottom / 0 2px no-repeat; transition: background-size 0.25s; }
 .nav nav a:hover, .nav nav a.active { background-size: 100% 2px; }

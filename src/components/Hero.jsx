@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react'
 import { profile } from '../data/content.js'
+import heroImg from '../assets/eshal-hero.jpg'
 
 // Animated network of nodes; labels are tools/ideas from the CV. Nodes drift and lean toward the pointer.
 const LABELS = ['PyTorch', 'PCA', 'SVM', '5-fold CV', 'Flask', 'React', 'Pandas']
@@ -44,7 +45,7 @@ function NetworkCanvas({ hostRef }) {
         for (let j = i + 1; j < nodes.length; j++) {
           const d = Math.hypot(nodes[i].x - nodes[j].x, nodes[i].y - nodes[j].y)
           if (d < 130) {
-            ctx.strokeStyle = `rgba(106,90,168,${0.35 * (1 - d / 130)})`
+            ctx.strokeStyle = `rgba(107,58,38,${0.35 * (1 - d / 130)})`
             ctx.lineWidth = 1
             ctx.beginPath(); ctx.moveTo(nodes[i].x, nodes[i].y); ctx.lineTo(nodes[j].x, nodes[j].y); ctx.stroke()
           }
@@ -52,9 +53,9 @@ function NetworkCanvas({ hostRef }) {
       }
       ctx.font = '600 12px Figtree, sans-serif'
       for (const n of nodes) {
-        ctx.fillStyle = n.pop ? '#5b3df5' : '#6f8f6b'
+        ctx.fillStyle = n.pop ? '#b3261e' : '#8a5a2b'
         ctx.beginPath(); ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2); ctx.fill()
-        if (n.label) { ctx.fillStyle = '#26262b'; ctx.fillText(n.label, n.x + 8, n.y + 4) }
+        if (n.label) { ctx.fillStyle = '#1f1612'; ctx.fillText(n.label, n.x + 8, n.y + 4) }
       }
     }
 
@@ -77,8 +78,30 @@ function NetworkCanvas({ hostRef }) {
 
 export default function Hero() {
   const host = useRef(null)
+
+  // The portrait blurs and softens a little as you scroll away from the hero.
+  useEffect(() => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
+    const el = host.current
+    let raf = 0
+    const update = () => {
+      cancelAnimationFrame(raf)
+      raf = requestAnimationFrame(() => {
+        const p = Math.min(Math.max(window.scrollY / (el.offsetHeight * 0.9), 0), 1)
+        el.style.setProperty('--blur', `${(p * 8).toFixed(1)}px`)
+        el.style.setProperty('--fade', (1 - p * 0.35).toFixed(2))
+      })
+    }
+    update()
+    window.addEventListener('scroll', update, { passive: true })
+    return () => { cancelAnimationFrame(raf); window.removeEventListener('scroll', update) }
+  }, [])
+
   return (
     <section id="top" className="hero" ref={host}>
+      <div className="hero-photo">
+        <img src={heroImg} alt="Portrait of Eshal Azhar" width="816" height="1020" />
+      </div>
       <NetworkCanvas hostRef={host} />
       <div className="wrap hero-grid">
         <div className="hero-main">
